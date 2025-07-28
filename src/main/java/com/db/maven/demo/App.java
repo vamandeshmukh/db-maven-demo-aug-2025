@@ -12,7 +12,6 @@ public class App {
         String url = "jdbc:postgresql://localhost:5432/deutsche";
         String user = "postgres";
         String password = "root";
-
         String query = "SELECT * FROM employees";
 
         try (Connection conn = DriverManager.getConnection(url, user, password);
