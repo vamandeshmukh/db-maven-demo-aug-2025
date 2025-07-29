@@ -1,11 +1,25 @@
 package com.db.maven.demo.service;
 
+import com.db.maven.demo.model.Employee;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class EmployeeServiceTest {
+
+    private final EmployeeService service = new EmployeeService();
+
+    @Test
+    void testFetchAllEmployees() {
+
+        List<Employee> empList = service.fetchAllEmployees();
+
+        assertEquals(10, 10);
+
+    }
 
 
 
