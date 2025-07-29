@@ -5,9 +5,15 @@ import com.db.maven.demo.util.DbUtil;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class EmployeeService {
+
+    private List<Employee> tempEmpList = new ArrayList<>(Arrays.asList(
+            new Employee(101, "Sonu", 90000.0),
+            new Employee(102, "Monu", 95000.0),
+            new Employee(103, "Tonu", 85000.0)));
 
     public List<Employee> fetchAllEmployees() {
         List<Employee> employees = new ArrayList<>();
@@ -30,7 +36,8 @@ public class EmployeeService {
             e.printStackTrace(); // You can replace with logger
         }
 
-        return employees;
+//        return employees;
+        return tempEmpList;
     }
 }
 
