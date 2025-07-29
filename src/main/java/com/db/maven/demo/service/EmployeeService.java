@@ -2,6 +2,7 @@ package com.db.maven.demo.service;
 
 import com.db.maven.demo.model.Employee;
 import com.db.maven.demo.util.DbUtil;
+import org.springframework.stereotype.Component;
 
 import java.sql.*;
 import java.util.ArrayList;
