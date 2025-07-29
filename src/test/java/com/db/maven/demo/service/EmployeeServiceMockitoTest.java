@@ -12,6 +12,9 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+//reference
+//https://site.mockito.org/#how
+
 class EmployeeServiceMockitoTest {
 
     private Connection mockConnection;
@@ -22,13 +25,12 @@ class EmployeeServiceMockitoTest {
         mockConnection = mock(Connection.class);
         PreparedStatement mockStatement = mock(PreparedStatement.class);
         mockResultSet = mock(ResultSet.class);
-
         when(mockConnection.prepareStatement(anyString())).thenReturn(mockStatement);
         when(mockStatement.executeQuery()).thenReturn(mockResultSet);
     }
 
     @Test
-    void testFetchAllEmployeesWithMockedDb() throws SQLException {
+    void testFetchAllEmployeesWithMockito() throws SQLException {
 
         when(mockResultSet.next()).thenReturn(true, true, false);
 
