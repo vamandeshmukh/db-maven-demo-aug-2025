@@ -29,10 +29,24 @@ class EmployeeServiceMockitoTest {
     }
 
     @Test
-    void testFetchAllEmployeesWithMockito() throws SQLException {
+    void testFetchAllEmployeesSizeWithMockito() throws SQLException {
 
         when(mockResultSet.next()).thenReturn(true, true, true, false);
 
+        try (MockedStatic<DbUtil> dbUtilMockedStatic = mockStatic(DbUtil.class)) {
+            dbUtilMockedStatic.when(DbUtil::getConnection).thenReturn(mockConnection);
+
+            service = new EmployeeService();
+            List<Employee> employees = service.fetchAllEmployees();
+
+            assertEquals(3, employees.size());
+        }
+    }
+
+    @Test
+    void testFetchAllEmployeesDataWithMockito() throws SQLException {
+
+        when(mockResultSet.next()).thenReturn(true, true, true, false);
         when(mockResultSet.getInt("id")).thenReturn(101, 102, 103);
         when(mockResultSet.getString("name")).thenReturn("Sonu", "Monu", "Tonu");
         when(mockResultSet.getDouble("salary")).thenReturn(90000.0, 95000.0, 85000.0);
@@ -40,17 +54,19 @@ class EmployeeServiceMockitoTest {
         try (MockedStatic<DbUtil> dbUtilMockedStatic = mockStatic(DbUtil.class)) {
             dbUtilMockedStatic.when(DbUtil::getConnection).thenReturn(mockConnection);
 
-            service = new EmployeeService(); // real service
+            service = new EmployeeService();
             List<Employee> employees = service.fetchAllEmployees();
 
             employees.forEach(System.out::println);
 
-            assertEquals(3, employees.size());
             assertEquals("Sonu", employees.get(0).getName());
             assertEquals(102, employees.get(1).getId());
             assertEquals(85000.0, employees.get(2).getSalary());
+
+            verify(mockResultSet, times(3)).getString("name");
         }
     }
+
 }
 
 
