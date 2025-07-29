@@ -15,7 +15,7 @@ class EmployeeServiceTest {
     @Test
     void testFetchAllEmployees() {
         List<Employee> empList = service.fetchAllEmployees();
-        assertEquals(5 + 5, 10);
+        assertEquals(3, empList.size());
     }
 
 }
