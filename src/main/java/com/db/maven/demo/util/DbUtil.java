@@ -17,6 +17,7 @@ public class DbUtil {
     private static final String PASSWORD = "root";
 
     public static Connection getConnection() throws SQLException {
+        System.out.println("getConnection");
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 }

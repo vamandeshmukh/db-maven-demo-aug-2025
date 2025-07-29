@@ -17,6 +17,7 @@ public class EmployeeService {
 //            new Employee(103, "Tonu", 85000.0)));
 
     public List<Employee> fetchAllEmployees() {
+        System.out.println("fetchAllEmployees");
         List<Employee> employees = new ArrayList<>();
         String query = "SELECT * FROM employees";
 
