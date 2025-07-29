@@ -13,13 +13,13 @@ class EmployeeServiceTest {
     private final EmployeeService service = new EmployeeService();
 
     @Test
-    void testFetchAllEmployees() {
+    void testFetchAllEmployeesSize() {
         List<Employee> empList = service.fetchAllEmployees();
         assertEquals(3, empList.size());
     }
 
     @Test
-    void testFetchAllEmployees2() {
+    void testFetchAllEmployeesSizePositive() {
         List<Employee> empList = service.fetchAllEmployees();
         assertNotEquals(0, empList.size());
     }
