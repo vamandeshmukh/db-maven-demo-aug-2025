@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@Component
 public class EmployeeService {
 
 //    private List<Employee> tempEmpList = new ArrayList<>(Arrays.asList(

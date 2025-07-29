@@ -2,19 +2,60 @@ package com.db.maven.demo;
 
 import com.db.maven.demo.model.Employee;
 import com.db.maven.demo.service.EmployeeService;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 import java.util.List;
 
+// tight coupling
+// loose coupling
+// object creation
+// DI
+
+// bean configurations -
+// Annonation configuration
+// XML
+// Java
+
+//@ComponentScan(basePackages = {"com.db.maven.demo.service", "com.db.maven.some.other.package"})
+@ComponentScan
 public class App {
+
     public static void main(String[] args) {
-        EmployeeService service = new EmployeeService();
+
+        // step 1 = context object
+        ApplicationContext context = new AnnotationConfigApplicationContext(App.class);
+
+//        EmployeeService service = new EmployeeService();
+
+        EmployeeService service = context.getBean(EmployeeService.class);
+
         List<Employee> employeeList = service.fetchAllEmployees();
         System.out.println("Employees data from the database:");
-        employeeList.forEach(employee -> System.out.println(employee));
-
+        employeeList.forEach(System.out::println);
     }
 }
 
+
+
+//package com.db.maven.demo;
+//
+//import com.db.maven.demo.model.Employee;
+//import com.db.maven.demo.service.EmployeeService;
+//
+//import java.util.List;
+//
+//public class App {
+//    public static void main(String[] args) {
+//        EmployeeService service = new EmployeeService();
+//        List<Employee> employeeList = service.fetchAllEmployees();
+//        System.out.println("Employees data from the database:");
+//        employeeList.forEach(employee -> System.out.println(employee));
+//
+//    }
+//}
+//
 
 //package com.db.maven.demo;
 //import java.sql.Connection;
