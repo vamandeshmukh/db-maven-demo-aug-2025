@@ -18,6 +18,11 @@ class EmployeeServiceTest {
         assertEquals(3, empList.size());
     }
 
+    @Test
+    void testFetchAllEmployees2() {
+        List<Employee> empList = service.fetchAllEmployees();
+        assertNotEquals(0, empList.size());
+    }
 }
 
 
