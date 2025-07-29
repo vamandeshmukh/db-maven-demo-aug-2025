@@ -10,10 +10,10 @@ import java.util.List;
 
 public class EmployeeService {
 
-    private List<Employee> tempEmpList = new ArrayList<>(Arrays.asList(
-            new Employee(101, "Sonu", 90000.0),
-            new Employee(102, "Monu", 95000.0),
-            new Employee(103, "Tonu", 85000.0)));
+//    private List<Employee> tempEmpList = new ArrayList<>(Arrays.asList(
+//            new Employee(101, "Sonu", 90000.0),
+//            new Employee(102, "Monu", 95000.0),
+//            new Employee(103, "Tonu", 85000.0)));
 
     public List<Employee> fetchAllEmployees() {
         List<Employee> employees = new ArrayList<>();
@@ -36,8 +36,8 @@ public class EmployeeService {
             e.printStackTrace(); // You can replace with logger
         }
 
-//        return employees;
-        return tempEmpList;
+        return employees;
+//        return tempEmpList;
     }
 }
 
